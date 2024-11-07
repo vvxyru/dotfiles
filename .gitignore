@@ -9,3 +9,5 @@ discord/
 Vencord/
 spotify/
 spicetify/
+.avalonia-build-tasks/
+obsidian/
