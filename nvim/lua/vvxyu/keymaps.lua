@@ -3,7 +3,8 @@ vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
-map("n", "<leader>oo", "<cmd>tcd ~/.config/nvim<cr>", { desc = "Open NVim Config Directory" })
+-- Quick config keybind
+map("n", "<leader>oo", "<cmd>tcd ~/.config/nvim/lua/vvxyu/<cr>", { desc = "Open NVim Config Directory" })
 
 -- goats
 map("n", "<leader>pv", "<cmd>Ex<cr>", { desc = "Open Explorer" })
@@ -61,3 +62,4 @@ map("n", "<leader>w", "<cmd>w!<cr>", { silent = true, desc = "Save File" })
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit File" })
 map("n", "<leader>Q", "<cmd>q!<cr>", { desc = "Quit File Without Saving" })
 map("n", "<leader>so", "<cmd>so<cr>", { desc = "Source File" })
+map("n", "<leader>go", "<C-o>", { desc = "Return From File" })

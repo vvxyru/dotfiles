@@ -9,5 +9,9 @@ return {
         { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope.nvim" }
     },
-    config = function() require("obsidian-bridge").setup() end,
+    config = function()
+        require("obsidian-bridge").setup({
+            scroll_sync = true,
+        })
+    end,
 }
