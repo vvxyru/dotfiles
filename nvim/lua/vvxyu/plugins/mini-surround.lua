@@ -12,7 +12,7 @@ return {
 
             -- Module mappings. Use `''` (empty string) to disable one.
             mappngs = {
-                add = 's',             -- Add surroundng in Normal and Visual modes
+                add = 'sa',            -- Add surroundng in Normal and Visual modes
                 delete = 'sd',         -- Delete surrounding
                 find = 'sf',           -- Find surrounding (to the right)
                 find_left = 'sF',      -- Find surrounding (to the left)
