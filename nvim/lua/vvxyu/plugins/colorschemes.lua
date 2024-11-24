@@ -2,6 +2,7 @@ local themes = {
     "kanagawa",
     "kanagawa-paper",
     "posterpole",
+    "gruvbox",
 }
 
 return {
@@ -14,7 +15,7 @@ return {
                 functionStyle = { italic = true },
                 keywordStyle = { italic = true },
                 statementStyle = { bold = true },
-                transparent = true,
+                transparent = false,
                 dimInactive = false,
                 terminalColors = true,
                 background = {
@@ -30,7 +31,7 @@ return {
         priority = 1000,
         config = function()
             require("kanagawa-paper").setup({
-                transparent = true,
+                transparent = false,
                 dimInactive = false,
                 terminalColors = true,
                 commentStyle = { italic = true },
@@ -47,10 +48,22 @@ return {
         priority = 1000,
         config = function()
             require("posterpole").setup({
-                transparent = true,
+                transparent = false,
                 selected_tab_highlight = true,
             })
         end,
+    },
+
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = function()
+            require("gruvbox").setup({
+                terminal_colors = true, -- add neovim terminal colors
+                contrast = "soft",      -- can be "hard", "soft" or empty string
+                transparent_mode = false,
+            })
+        end
     },
 
     {

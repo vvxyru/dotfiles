@@ -7,7 +7,7 @@ return {
             extensions = {
                 "lazy",
                 "mason",
-                "fugitive",
+                "nvim-tree",
             },
         })
     end,
