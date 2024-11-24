@@ -4,6 +4,8 @@ dconf/
 pulse/
 Electron/
 gtk-3.0/
+gtk-2.0/
+systemd/
 procps/
 yay/
 discord/

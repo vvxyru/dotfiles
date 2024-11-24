@@ -1,17 +1,54 @@
 local themes = {
+    "kanagawa",
     "kanagawa-paper",
+    "posterpole",
 }
 
 return {
     {
+        "rebelot/kanagawa.nvim",
+        priority = 1000,
+        config = function()
+            require("kanagawa").setup({
+                commentStyle = { italic = true },
+                functionStyle = { italic = true },
+                keywordStyle = { italic = true },
+                statementStyle = { bold = true },
+                transparent = true,
+                dimInactive = false,
+                terminalColors = true,
+                background = {
+                    dark = "dragon",
+                    light = "lotus"
+                },
+            })
+        end,
+    },
+
+    {
         "sho-87/kanagawa-paper.nvim",
-        lazy = true,
-        event = "VimEnter",
         priority = 1000,
         config = function()
             require("kanagawa-paper").setup({
-                -- transparent = true,
-                transparent = false,
+                transparent = true,
+                dimInactive = false,
+                terminalColors = true,
+                commentStyle = { italic = true },
+                functionStyle = { italic = true },
+                keywordStyle = { italic = true },
+                statementStyle = { bold = true },
+                colors = { theme = {}, palette = {} },
+            })
+        end,
+    },
+
+    {
+        "ilof2/posterpole.nvim",
+        priority = 1000,
+        config = function()
+            require("posterpole").setup({
+                transparent = true,
+                selected_tab_highlight = true,
             })
         end,
     },

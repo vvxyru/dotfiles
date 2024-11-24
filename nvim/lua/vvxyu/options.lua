@@ -1,23 +1,34 @@
 local opt = vim.opt
-local g = vim.g
 
 opt.cursorline = true
-opt.number = true
+opt.relativenumber = true
 
 opt.wrap = false
 
 opt.signcolumn = "auto"
+opt.numberwidth = 2
+
+opt.showmode = false
 
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
+opt.smartindent = true
+
+opt.shortmess:append "sI"
+
+opt.backspace = "indent,eol,start"
 
 opt.termguicolors = true
 
 opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
+opt.smartcase = true
+
+opt.spell = true
+opt.spelllang = { 'en_us' }
 
 opt.scrolloff = 7
 
@@ -27,27 +38,10 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 opt.completeopt = "menu,menuone,noselect"
+opt.pumheight = 10
+
+opt.laststatus = 2
 
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 
 opt.updatetime = 150
-
--- Number on InsertEnter, RelativeNumber on InsertLeave
-local function relativeLine()
-    vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-        pattern = "*",
-        callback = function()
-            opt.relativenumber = false
-            opt.number = true
-        end,
-    })
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        pattern = "*",
-        callback = function()
-            opt.relativenumber = true
-            opt.number = true
-        end,
-    })
-end
-
-relativeLine()

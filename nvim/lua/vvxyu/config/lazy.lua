@@ -5,11 +5,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Open Lazy (Plugin Manager)" })
+local map = vim.keymap.set
+
+map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Open Lazy (Plugin Manager)" })
 
 require("lazy").setup({
     spec = {
         { import = "vvxyu.plugins" },
+        { import = "vvxyu.lsp" },
     },
-    change_detection = { notify = false }
+    change_detection = {
+        notify = false
+    },
 })

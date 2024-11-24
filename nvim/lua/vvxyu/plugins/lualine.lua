@@ -7,19 +7,7 @@ return {
             extensions = {
                 "lazy",
                 "mason",
-                "toggleterm",
                 "fugitive",
-                "fzf",
-            },
-            sections = {
-                lualine_x = {
-                    "encoding",
-                    "fileformat",
-                    function()
-                        local codeium_status = vim.fn["codeium#GetStatusString"]()
-                        return codeium_status or ""
-                    end,
-                },
             },
         })
     end,

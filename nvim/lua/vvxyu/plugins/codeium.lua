@@ -3,7 +3,7 @@ return {
     event = "BufEnter",
 
     config = function()
-        vim.keymap.set("i", "<tab>", function()
+        vim.keymap.set("i", "<S-tab>", function()
             return vim.fn["codeium#Accept"]()
         end, { noremap = true, expr = true, silent = true })
 
