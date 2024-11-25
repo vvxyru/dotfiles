@@ -6,15 +6,22 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Goats
-map("n", "<leader>pv", "<cmd>Ex<cr>", { noremap = true, silent = true, desc = "Open file explorer" })
 map("i", "jj", "<esc>", opts)
 
+-- Bye bye :(
+-- map("n", "<leader>pv", "<cmd>Ex<cr>", { noremap = true, silent = true, desc = "Open file explorer" })
+
 -- Cursor movement
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, noremap = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, noremap = true, silent = true })
+
+-- Line movement
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, noremap = true, silent = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, noremap = true, silent = true })
+-- Buffer movement
+map("n", "<leader><tab>", "<cmd>bnext<cr>", { noremap = true, silent = true, desc = "Next buffer" })
+map("n", "<leader><S-tab>", "<cmd>bprevious<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 
 -- Line indenting
 map("v", "<tab>", ">gv", opts)

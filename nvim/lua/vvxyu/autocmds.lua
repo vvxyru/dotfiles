@@ -84,3 +84,26 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.cmd.highlight("IndentLineCurrent guifg=#54546D")
     end,
 })
+
+-- Open nvim-tree when a directory is opened
+local function open_nvim_tree(data)
+    local directory = vim.fn.isdirectory(data.file) == 1
+    if not directory then
+        return
+    end
+    vim.cmd.cd(data.file)
+    require("nvim-tree.api").tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+
+-- Close nvim-tree if it's the last window
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = vim.api.nvim_create_augroup("NvimTreeAutoClose", { clear = true }),
+    callback = function()
+        local layout = vim.api.nvim_list_wins()
+        if #layout == 1 and vim.bo[vim.api.nvim_get_current_buf()].filetype == "NvimTree" then
+            vim.cmd("quit")
+        end
+    end,
+})

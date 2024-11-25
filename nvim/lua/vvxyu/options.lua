@@ -1,4 +1,9 @@
 local opt = vim.opt
+local g = vim.g
+
+-- disable netrw
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 opt.cursorline = true
 opt.relativenumber = true

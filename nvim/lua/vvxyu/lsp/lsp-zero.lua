@@ -9,6 +9,8 @@ return {
         { "neovim/nvim-lspconfig",            event = { "BufReadPre", "BufNewFile" }, },
         { "hrsh7th/cmp-nvim-lsp",             event = "InsertEnter" },
         { "hrsh7th/nvim-cmp",                 event = "InsertEnter" },
+        { "hrsh7th/cmp-buffer",               event = "InsertEnter" },
+        { "hrsh7th/cmp-cmdline",              event = "BufEnter" },
         { "L3MON4D3/LuaSnip",                 event = "InsertCharPre" },
     },
 
@@ -66,11 +68,33 @@ return {
 
         local cmp_action = lsp_zero.cmp_action()
 
+        cmp.setup.cmdline('/', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                }
+            })
+        })
+
         cmp.setup({
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "neorg" },
+                { name = "buffer" },
             },
 
             mapping = cmp.mapping.preset.insert({
