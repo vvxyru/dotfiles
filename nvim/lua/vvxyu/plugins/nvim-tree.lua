@@ -22,10 +22,10 @@ return {
         vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
 
         -- Open file on create
-        local api = require("nvim-tree.api")
-        api.events.subscribe(api.events.Event.FileCreated, function(file)
-            vim.cmd("edit " .. vim.fn.fnameescape(file.fname))
-        end)
+        -- local api = require("nvim-tree.api")
+        -- api.events.subscribe(api.events.Event.FileCreated, function(file)
+        --     vim.cmd("edit " .. vim.fn.fnameescape(file.fname))
+        -- end)
 
         -- Make :bd and :q behave as usual when tree is visible
         vim.api.nvim_create_autocmd({ 'BufEnter', 'QuitPre' }, {

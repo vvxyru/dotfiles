@@ -1,11 +1,10 @@
 return {
     "Exafunction/codeium.vim",
     event = "BufEnter",
-
     config = function()
-        vim.keymap.set("i", "<S-tab>", function()
+        vim.keymap.set("i", "<S-Tab>", function()
             return vim.fn["codeium#Accept"]()
-        end, { noremap = true, expr = true, silent = true })
+        end, { remap = true, expr = true, silent = true })
 
         vim.keymap.set("i", "<C-n>", function()
             return vim.fn["codeium#CycleCompletions"](1)
