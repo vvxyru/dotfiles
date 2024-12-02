@@ -5,6 +5,9 @@ opt.mouse = 'a'
 
 opt.clipboard = 'unnamedplus' 
 
+-- Close netrw buffer after entering file
+g.netrw_fastbrowse = 0
+
 -- Startup
 opt.shortmess:append "sI"
 
