@@ -15,6 +15,9 @@ map({ "n", "x" }, "L", "$", opts)
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+-- Insert Mode
+map("i", "<C-BS>", "<C-w>", opts)
+
 -- Clipboard
 map("x", "<leader>pd", [["_dP]])
 map("n", "<leader>ya", "<cmd>%y+<cr>")

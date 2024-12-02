@@ -20,7 +20,10 @@ map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Open Lazy (Plugin Manager)" })
 
 -- Lazy setup
 require("lazy").setup({
-    spec = "vvxyu.plugins",
+    spec = {
+        { import = "vvxyu.plugins" },
+        { import = "vvxyu.lsp" },
+    },
     change_detection = { notify = false },
 })
 
