@@ -7,6 +7,5 @@ return {
             transparent = true,
             terminalColors = true,
         })
-        vim.cmd("colorscheme kanagawa-paper")
     end
 }

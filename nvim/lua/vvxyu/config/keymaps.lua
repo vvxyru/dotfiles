@@ -1,13 +1,9 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-map("n", "<leader>pv", "<cmd>Ex<cr>", opts)
-
 -- goatttttt
 map("i", "jj", "<esc>", opts)
+map("n", "<leader>pv", "<cmd>Ex<cr>", opts)
 
 -- Line Movement
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -18,7 +14,6 @@ map({ "n", "x" }, "L", "$", opts)
 
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
-
 
 -- Clipboard
 map("x", "<leader>pd", [["_dP]])
@@ -34,6 +29,9 @@ map("n", "<leader><cr>", "<cmd>nohl<cr>", { desc = "Clear Search Highlights" })
 
 map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
+
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
 
 -- Window Movement
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
