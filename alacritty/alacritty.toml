@@ -4,7 +4,6 @@ blur = true
 dynamic_padding = true
 
 [font]
-
 size = 9.5
 
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
@@ -13,11 +12,14 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 
 [cursor]
-
 style = { shape = "Block", blinking = "Always" }
 
 blink_interval = 625
 
 [mouse]
-
 hide_when_typing = true
+
+[keyboard]
+bindings = [
+    { key = "Space", mods = "Shift", chars  = "\u0019" },
+]

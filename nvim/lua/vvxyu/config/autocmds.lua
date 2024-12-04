@@ -50,21 +50,29 @@ autocmd("BufReadPost", {
 
 -- Wrap in text filetypes
 autocmd("FileType", {
-  group = group,
-  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-  end,
+    group = group,
+    pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+    callback = function()
+        vim.opt_local.wrap = true
+    end,
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 autocmd({ "BufWritePre" }, {
-  group = group,
-  callback = function(event)
-    if event.match:match("^%w%w+:[\\/][\\/]") then
-      return
-    end
-    local file = vim.uv.fs_realpath(event.match) or event.match
-    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
-  end,
+    group = group,
+    callback = function(event)
+        if event.match:match("^%w%w+:[\\/][\\/]") then
+            return
+        end
+        local file = vim.uv.fs_realpath(event.match) or event.match
+        vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+    end,
+})
+
+-- Apply indentline highlights on colorscheme switch
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        vim.cmd.highlight("IndentLine guifg=#464646")
+        vim.cmd.highlight("IndentLineCurrent guifg=#54546D")
+    end,
 })

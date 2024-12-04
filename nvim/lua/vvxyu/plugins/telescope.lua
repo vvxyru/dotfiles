@@ -50,6 +50,5 @@ return {
         end
 
         load_colorscheme()
-
     end,
 }

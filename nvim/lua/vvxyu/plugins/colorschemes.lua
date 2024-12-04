@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("kanagawa-paper").setup({
-            transparent = false,
+            transparent = true,
             terminalColors = true,
         })
     end

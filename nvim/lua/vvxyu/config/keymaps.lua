@@ -19,13 +19,18 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 map("i", "<C-BS>", "<C-w>", opts)
 
 -- Clipboard
+map("n", "<leader>ya", "<cmd>%y+<cr>", opts)
+map("n", "<leader>da", "ggdG", opts)
+
 map("x", "<leader>pd", [["_dP]])
-map("n", "<leader>ya", "<cmd>%y+<cr>")
-map({"n", "v"}, "<leader>d", [["_d]])
+map({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Indenting
 map("v", "<S-tab>", "<gv", opts)
 map("v", "<tab>", ">gv", opts)
+
+map("n", "<tab>", ">>", opts)
+map("n", "<S-tab>", "<<", opts)
 
 -- Search Binds
 map("n", "<leader><cr>", "<cmd>nohl<cr>", { desc = "Clear Search Highlights" })
@@ -57,7 +62,7 @@ map("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Delete Other Buffers" })
 
 -- File Mappings
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save Current File" })
-map("n", "<leader>W", "<cmd>wa!<cr>", { desc = "Save all Buffers" })
+map("n", "<leader>W", "<cmd>wa!<cr>", { desc = "Save all Open Files" })
 
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit Current File" })
 map("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "Force Quit all Files" })

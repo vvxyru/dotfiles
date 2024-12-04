@@ -28,7 +28,6 @@ return {
                 map({ 'n', 'x' }, '<leader>mf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
                 map('n', '<leader>ma', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
             end,
-
         })
     end,
 }

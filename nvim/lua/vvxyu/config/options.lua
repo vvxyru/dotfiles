@@ -3,7 +3,7 @@ local g = vim.g
 
 opt.mouse = 'a'
 
-opt.clipboard = 'unnamedplus' 
+opt.clipboard = 'unnamedplus'
 
 -- Close netrw buffer after entering file
 g.netrw_fastbrowse = 0
@@ -30,6 +30,9 @@ opt.relativenumber = true
 opt.laststatus = 3
 opt.wrap = false
 opt.cursorline = true
+
+vim.cmd.highlight("IndentLine guifg=#464646")
+vim.cmd.highlight("IndentLineCurrent guifg=#54546D")
 
 -- Backup
 opt.swapfile = false

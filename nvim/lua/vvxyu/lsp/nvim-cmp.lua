@@ -23,10 +23,26 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<S-tab>"] = cmp.mapping.select_prev_item(),
-                ["<tab>"] = cmp.mapping.select_next_item(),
-                ["<C-space>"] = cmp.mapping.complete(),
-                ["<cr>"] = cmp.mapping.confirm({ select = true }),
+                -- Tab to select the next item or fallback if not visible
+                ["<C-n>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                    else
+                        fallback() -- Default behavior (e.g., inserting a tab character)
+                    end
+                end, { "i", "s" }),
+
+                -- Shift+Tab to select the previous item or fallback if not visible
+                ["<C-p>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+                    else
+                        fallback() -- Default behavior (e.g., inserting a tab character)
+                    end
+                end, { "i", "s" }),
+
+                ["<tab>"] = cmp.mapping.confirm({ select = true }),
+
             }),
             sources = cmp.config.sources({
                 { name = "luasnip" },
@@ -36,3 +52,4 @@ return {
         })
     end,
 }
+
