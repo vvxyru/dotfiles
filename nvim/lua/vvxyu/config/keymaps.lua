@@ -18,6 +18,9 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 -- Insert Mode
 map("i", "<C-BS>", "<C-w>", opts)
 
+-- Spelling
+map("n", "zp", "z=", { desc = "Spell Check (Current Word)", silent = true })
+
 -- Clipboard
 map("n", "<leader>ya", "<cmd>%y+<cr>", opts)
 map("n", "<leader>da", "ggdG", opts)
@@ -47,7 +50,7 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
--- Window Resize
+-- Window Reside
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })

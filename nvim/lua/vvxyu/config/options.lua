@@ -10,6 +10,8 @@ g.netrw_fastbrowse = 0
 
 -- Startup
 opt.shortmess:append "sI"
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- Tab
 opt.expandtab = true
@@ -23,6 +25,8 @@ opt.showmode = false
 
 -- Editor
 opt.autowrite = true
+opt.spell = false
+opt.spelllang = "en_us"
 
 -- UI
 opt.termguicolors = true

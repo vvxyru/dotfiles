@@ -57,6 +57,19 @@ autocmd("FileType", {
     end,
 })
 
+-- Spellcheck on filetype
+local spell_types = { "text", "plaintex", "typst", "gitcommit", "markdown" }
+
+vim.api.nvim_create_augroup("Spellcheck", { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = "Spellcheck", -- Grouping the command for easier management
+  pattern = spell_types, -- Only apply to these file types
+  callback = function()
+    vim.opt_local.spell = true -- Enable spellcheck for these file types
+  end,
+  desc = "Enable spellcheck for defined filetypes", -- Description for clarity
+})
+
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 autocmd({ "BufWritePre" }, {
     group = group,
