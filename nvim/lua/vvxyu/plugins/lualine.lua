@@ -18,7 +18,6 @@ return {
             return nil
         end
 
-        -- Get the saved colorscheme
         local saved_colorscheme = get_saved_colorscheme() or "default"
 
         require("lualine").setup({
